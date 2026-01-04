@@ -36,22 +36,23 @@ setTimeout(function () {
     }
   });
 
-  var enforceMute = function () {
-    var video = document.querySelector("video");
-    if (!video) return;
+  function enforceVideoLoop() {
+    const video = document.querySelector("video");
+    if (!video) {
+      setTimeout(enforceVideoLoop, 200);
+      return;
+    }
 
     video.muted = true;
-    video.setAttribute("muted", "");
+    video.loop = true;
+    video.setAttribute("loop", "");
     video.volume = 0;
-  };
+  }
 
-  setTimeout(enforceMute, 100);
-  setTimeout(enforceMute, 500);
-  setTimeout(enforceMute, 1000);
-
-  document.addEventListener("click", enforceMute, { once: true });
+  enforceVideoLoop();
 }, 500);
 </script>
+
 
 
 </body>
