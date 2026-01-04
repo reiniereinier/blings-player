@@ -21,18 +21,21 @@
 <body>
   <div id="video-container"></div>
 
-  <script>
-    setTimeout(function () {
-      if (!window.BlingsPlayer) return;
+<script>
+setTimeout(function () {
+  if (!window.BlingsPlayer) return;
 
-      BlingsPlayer.create({
-        project: { id: "879d7f03-37eb-4c25-9e8a-8cc35128eb3f" },
-        settings: {
-          container: document.getElementById("video-container"),
-          cinematic: true
-        }
-      });
-    }, 500);
-  </script>
+  BlingsPlayer.create({
+    project: { id: "879d7f03-37eb-4c25-9e8a-8cc35128eb3f" },
+    settings: {
+      container: document.getElementById("video-container"),
+      cinematic: true,
+      muted: true,
+      autoplay: true
+    }
+  });
+}, 500);
+</script>
+
 </body>
 </html>
