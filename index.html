@@ -30,12 +30,29 @@ setTimeout(function () {
     settings: {
       container: document.getElementById("video-container"),
       cinematic: true,
+      autoplay: true,
       muted: true,
-      autoplay: true
+      playsinline: true
     }
   });
+
+  var enforceMute = function () {
+    var video = document.querySelector("video");
+    if (!video) return;
+
+    video.muted = true;
+    video.setAttribute("muted", "");
+    video.volume = 0;
+  };
+
+  setTimeout(enforceMute, 100);
+  setTimeout(enforceMute, 500);
+  setTimeout(enforceMute, 1000);
+
+  document.addEventListener("click", enforceMute, { once: true });
 }, 500);
 </script>
+
 
 </body>
 </html>
